@@ -3,6 +3,11 @@ import React from 'react'
 const Card = ({ personaje }) => {
     return (
         <section className='personaje'>
+            <div className='personaje-header'>
+                <div className='estado'>
+                </div>
+            </div>
+
             <div className='personaje-body'>
                 <figure>
                     <img src={personaje.image} alt={personaje.name} />
