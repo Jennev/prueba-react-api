@@ -1,43 +1,58 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react'
 import Logo from './assets/img/logo.png'
-
+import Filtrar from './Components/Filter'
+import Card from './Components/Card'
 
 const MiApi = () => {
-    const [characters, setCharacters] = useState([]);
-
-    const getApi = async () => {
-        try {
-            const res = await fetch("https://rickandmortyapi.com/api/character");
-            const data = await res.json();
-
-            console.log(data.results);
-
-            setCharacters(data.results);
-        } catch (error) {
-            console.log(error);
-        }
-    }
+    const [personajes, setPersonajes] = useState([])
+    const [loading, setLoading] = useState(true)
+    const [filter, setFilter] = useState('')
 
     useEffect(() => {
-        getApi();
-    }, []);
+        const getPersonajes = async () => {
+            try {
+                const response = await fetch(
+                    'https://rickandmortyapi.com/api/character'
+                )
+                const data = await response.json()
+                setPersonajes(data.results)
+                setLoading(false)
+            } catch (error) {
+                console.log(error)
+            }
+        }
+        getPersonajes()
+    }, [])
+
+    const personjesFiltrados = personajes.filter((personaje) =>
+        personaje.name.toLocaleLowerCase().includes(filter.toLocaleLowerCase())
+    )
 
     return (
-        <div className="App">
-            <h1>Prueba React </h1>
-            <h2>Personajes serie Rick and Morty</h2>
+        <div className='container'>
             <figure className='logo'>
-				<img src={Logo} alt='Logo de Rick & Morty' />
-			</figure>
-           
-            {
-                characters.map((characters) =>
-                    <div key={characters.id}>
-                        <h3>{characters.name}</h3>
-                        <img src={characters.image} alt="" />
-                        <p>{characters.species}</p>
-                    </div>)
-            }
+                <img src={Logo} alt='Logo de Rick & Morty' />
+            </figure>
+            {/* form filtrar */}
+            <Filtrar filter={filter} setFilter={setFilter} />
+            {/* form filtrar */}
+
+            {/* section personajes */}
+            <section className='lista-personajes'>
+                {loading ? (
+                    <p>Cargando...</p>
+                ) : personjesFiltrados.length > 0 ? (
+                    personjesFiltrados.map((personaje) => (
+                        <Card key={personaje.id} personaje={personaje} />
+                    ))
+                ) : (
+                    <p>
+                        No se encontro personajes con la busqueda{' '}
+                        <strong>"{filter}"</strong>.
+                    </p>
+                )}
+            </section>
+            {/* section personajes */}
         </div>
     )
 }
