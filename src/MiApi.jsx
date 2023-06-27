@@ -11,22 +11,21 @@ const MiApi = () => {
     useEffect(() => {
         const getPersonajes = async () => {
             try {
-                const response = await fetch(
-                    'https://rickandmortyapi.com/api/character'
-             )
-                const data = await response.json()
-                setPersonajes(data.results)
-                setLoading(false)
+                const response = await fetch('https://rickandmortyapi.com/api/character');
+                const data = await response.json();
+                const sortedData = data.results.sort((a, b) => a.name.localeCompare(b.name));
+                setPersonajes(sortedData);
+                setLoading(false);
             } catch (error) {
-                console.log(error)
+                console.log(error);
             }
-        }
-        getPersonajes()
-    }, [])
+        };
+        getPersonajes();
+    }, []);
 
     const personjesFiltrados = personajes.filter((personaje) =>
         personaje.name.toLocaleLowerCase().includes(filter.toLocaleLowerCase())
-    )
+    );
 
     return (
         <div className='container'>
@@ -47,14 +46,13 @@ const MiApi = () => {
                     ))
                 ) : (
                     <p>
-                        No se encontro personajes con la busqueda{' '}
-                        <strong>"{filter}"</strong>.
+                        No se encontraron personajes con la búsqueda <strong>"{filter}"</strong>.
                     </p>
                 )}
             </section>
             {/* section personajes */}
         </div>
-    )
-}
+    );
+};
 
 export default MiApi;
