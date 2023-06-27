@@ -1,4 +1,4 @@
-
+import Api from './MiApi'
 import './App.css'
 
 function App() {
@@ -6,6 +6,7 @@ function App() {
 
   return (
     <>
+    <Api></Api>
     </>
   )
 }
