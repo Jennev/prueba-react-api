@@ -1,6 +1,8 @@
 import React from 'react'
 
 const Card = ({ personaje }) => {
+
+    
     return (
         <section className='personaje'>
             <div className='personaje-header'>
