@@ -9,8 +9,8 @@ html {
 }
 
 :root {
-	--color-primary: #1cbcd1a6;
-	--color-secondary: #2267a796;
+	--color-primary: #08b2c9;
+	--color-secondary: #28527a;
 	--color-light: #dbf6e9;
 	--color-dark: #151515;
 }
@@ -18,7 +18,7 @@ html {
 body {
 	font-size: 1.6rem;
 	font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-	background: linear-gradient(70deg, green, rgb(178, 240, 178));
+	background: linear-gradient(70deg, blue, pink);
 	color: var(--color-light);
 }
 
