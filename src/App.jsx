@@ -1,4 +1,4 @@
-import MiApi from "./MiApi";
+import MiApi from "./Components/MiApi";
 import './App.css'
 
 function App() {

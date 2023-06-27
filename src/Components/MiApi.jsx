@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react'
-import Logo from './assets/img/logo.png'
-import Buscador from './Components/Buscador'
-import Card from './Components/Card'
+import Logo from '../assets/img/logo.png'
+import Buscador from './Buscador'
+import Card from './Card'
 
 const MiApi = () => {
     const [personajes, setPersonajes] = useState([])
