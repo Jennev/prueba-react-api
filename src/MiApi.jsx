@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 import Logo from './assets/img/logo.png'
-import Filtrar from './Components/Filter'
+import Buscador from './Components/Buscador'
 import Card from './Components/Card'
 
 const MiApi = () => {
@@ -34,7 +34,7 @@ const MiApi = () => {
                 <img src={Logo} alt='Logo de Rick & Morty' />
             </figure>
             {/* form filtrar */}
-            <Filtrar filter={filter} setFilter={setFilter} />
+            <Buscador filter={filter} setFilter={setFilter} />
             {/* form filtrar */}
 
             {/* section personajes */}
