@@ -2,6 +2,13 @@ body{
   background-color: aquamarine;
 }
 
+.logo {
+	width: 22rem;
+	margin: 4rem auto;
+}
+.logo img {
+	width: 100%;
+}
 /*
 
 #root {

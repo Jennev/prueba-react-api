@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import Logo from './assets/img/logo.png'
 
 
 const MiApi = () => {
@@ -23,18 +24,21 @@ const MiApi = () => {
 
     return (
         <div className="App">
-        <h1>Prueba React </h1>
-        <h2>Personajes serie Rick and Morty</h2>
-        
-        {
-          characters.map((characters) =>
-            <div key={characters.id}>
-              <h3>{characters.name}</h3>
-              <img src={characters.image} alt="" />
-              <p>{characters.species}</p>
-            </div>)
-        }
-      </div>
+            <h1>Prueba React </h1>
+            <h2>Personajes serie Rick and Morty</h2>
+            <figure className='logo'>
+				<img src={Logo} alt='Logo de Rick & Morty' />
+			</figure>
+           
+            {
+                characters.map((characters) =>
+                    <div key={characters.id}>
+                        <h3>{characters.name}</h3>
+                        <img src={characters.image} alt="" />
+                        <p>{characters.species}</p>
+                    </div>)
+            }
+        </div>
     )
 }
 
